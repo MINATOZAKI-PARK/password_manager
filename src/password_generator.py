@@ -9,3 +9,4 @@ def generate_password(long):
            any(char in sg.punctuation for char in password) and
            any(char in sg.digits for char in password)):
             return password
+
