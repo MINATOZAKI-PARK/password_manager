@@ -17,7 +17,7 @@ def generate_password(long):
             raise ValueError("La longitud mínima recomendada es de 8 caracteres.") # Si se ingresa una longitud menor a 8 lanza este error
         
     except ValueError as e:
-        print("Error:", e)
+        print(f"Error:{e}")
         return None  # Retorna None en caso de error
 
 
