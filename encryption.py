@@ -22,10 +22,10 @@ def loadKey(clave= "clave.key"):
         return None
 """
 
-def encryptPassword(password, key):
+def encryptPassword(password, key): # Resive contraseña y key
     try:
-        fernet = Fernet(key)
-        passwordEncrypt = fernet.encrypt(password.encode())
+        fernet = Fernet(key) 
+        passwordEncrypt = fernet.encrypt(password.encode()) # encripta la contraseña y la pasa a bit
         print(f'Contrasena cifrada...{passwordEncrypt}')
         return passwordEncrypt
     
@@ -37,7 +37,7 @@ def encryptPassword(password, key):
 def decryptPassword(password, key):
         try:
             fernet = Fernet(key)
-            passwordDecrypt = fernet.decrypt(password).decode()
+            passwordDecrypt = fernet.decrypt(password).decode() # Desencripta la contraseña
             print(f'Contrasena descifrada')
             return passwordDecrypt
 
