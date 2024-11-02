@@ -46,20 +46,15 @@ def decryptPassword(password, key):
             return None
 
 
-"""
+
 if __name__ == "__main__":
 
-    generateKey()
 
-    key = loadKey()
 
-    password = generate_password(12)
+    encrypt = encryptPassword(None)
 
-    encrypt = encryptPassword(password, key)
+    decrypt = decryptPassword(None)
 
-    decrypt = decryptPassword(encrypt, key)
-
-"""
 
 
 
