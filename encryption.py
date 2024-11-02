@@ -1,33 +1,63 @@
 from cryptography.fernet import Fernet 
+
+# prueba
 from generator import generate_password
+from keyManager import generateKey, loadKey
 
-def claveGL():
+# pasado a keyManager
+"""
+def generateKey(clave= "clave.key"):
     key = Fernet.generate_key()
-    with open("clave.key", "wb") as key_file:
+    with open(clave , "wb") as key_file:
         key_file.write(key)
+    print(f"Clave generada y guardada en {clave}")
 
-    with open("clave.key", "rb") as key_file:
-        return key_file.read()
+def loadKey(clave= "clave.key"):
+    try:
+        with open(clave, "rb") as key_file:
+            key = key_file.read()
+        return key
+    except FileNotFoundError:
+        print(f"Error: No se pudo encontrar el archivo {clave}.")
+        return None
+"""
+
+def encryptPassword(password, key):
+    try:
+        fernet = Fernet(key)
+        passwordEncrypt = fernet.encrypt(password.encode())
+        print(f'Contrasena cifrada...{passwordEncrypt}')
+        return passwordEncrypt
+    
+    except Exception as e:
+        print(f"Error al cifrar: {e}")
+        return None
+
+
+def decryptPassword(password, key):
+        try:
+            fernet = Fernet(key)
+            passwordDecrypt = fernet.decrypt(password).decode()
+            print(f'Contrasena descifrada')
+            return passwordDecrypt
+
+        except Exception as e:
+            print(f"Error al cifrar: {e}")
+            return None
 
 
 
+if __name__ == "__main__":
 
-keyC = claveGL()
-fernet = Fernet(keyC)
-password = generate_password(12)
+    generateKey()
 
+    key = loadKey()
 
-def cifrado(pword):
-    pword.encode()
-    password = fernet.encrypt(pword)
-    print(f'Contrasena cifrada...')
-    return password
+    password = generate_password(12)
 
+    encrypt = encryptPassword(password, key)
 
-passwordCifrada = cifrado()
-contrasenaDesifrada = fernet.decrypt(passwordCifrada)
-print(f'Contrasena descifrada: {contrasenaDesifrada.decode()}')
-
+    decrypt = decryptPassword(encrypt, key)
 
 
 
