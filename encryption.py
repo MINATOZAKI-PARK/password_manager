@@ -1,8 +1,8 @@
 from cryptography.fernet import Fernet 
 
 # prueba
-from generator import generate_password
-from keyManager import generateKey, loadKey
+# from generator import generate_password
+# from keyManager import generateKey, loadKey
 
 # pasado a keyManager
 """
@@ -46,7 +46,7 @@ def decryptPassword(password, key):
             return None
 
 
-
+"""
 if __name__ == "__main__":
 
     generateKey()
@@ -59,6 +59,7 @@ if __name__ == "__main__":
 
     decrypt = decryptPassword(encrypt, key)
 
+"""
 
 
 
