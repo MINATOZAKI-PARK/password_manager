@@ -26,7 +26,7 @@ def encryptPassword(password, key): # Resive contraseña y key
     try:
         fernet = Fernet(key) 
         passwordEncrypt = fernet.encrypt(password.encode()) # encripta la contraseña y la pasa a bit
-        print(f'Contrasena cifrada...{passwordEncrypt}')
+        print(f'Contrasena cifrada...')
         return passwordEncrypt
     
     except Exception as e:
